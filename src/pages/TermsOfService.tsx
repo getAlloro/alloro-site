@@ -1,29 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 export default function TermsOfService() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="w-full bg-white border-b border-gray-100">
-        <div className="mx-auto max-w-[1190px] px-4 py-3 md:px-8 md:py-6">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center">
-              <img
-                src="/logo.png"
-                alt="Alloro"
-                className="h-7 md:h-10 w-auto"
-              />
-            </Link>
-            <Link
-              to="/"
-              className="text-[14px] md:text-[16px] font-medium text-[#777777] hover:text-black transition-colors"
-            >
-              ← Back to Home
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Header showBackToHome />
 
       {/* Hero Section */}
       <section className="w-full bg-[#F9FAFB] py-12 md:py-16 lg:py-20">
@@ -407,7 +389,7 @@ export default function TermsOfService() {
         <div className="mx-auto max-w-[1190px] px-4 md:px-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">
-              <img src="/logo.png" alt="Alloro" className="h-6 w-auto" />
+              <img src="https://app.getalloro.com/logo.png" alt="Alloro" className="h-6 w-auto" />
             </div>
             <div className="flex items-center gap-6 text-[14px] text-[#777777]">
               <Link to="/terms" className="hover:text-black transition-colors">

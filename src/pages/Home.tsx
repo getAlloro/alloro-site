@@ -1,27 +1,38 @@
-import NavigationSection from "@/components/home/sections/NavigationSection";
-import HeroSection from "@/components/home/sections/HeroSection";
-import TestimonialsSection from "@/components/home/sections/TestimonialsSection";
-import FeaturesSection from "@/components/home/sections/FeaturesSection";
-import SetupSection from "@/components/home/sections/SetupSection";
-import HealthcareProfessionalsSection from "@/components/home/sections/HealthcareProfessionalsSection";
-import FormSection from "@/components/home/sections/FormSection";
-import BeliefsSection from "@/components/home/sections/BeliefsSection";
-import FooterSection from "@/components/home/sections/FooterSection";
+import React from "react";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import ProofRow from "../components/ProofRow";
+import FeatureCards from "../components/FeatureCards";
+import GrowthTabs from "../components/GrowthTabs";
+import ProblemRelief from "../components/ProblemRelief";
+import ExamplePreview from "../components/ExamplePreview";
+import CaseStudy from "../components/CaseStudy";
+import LeadForm from "../components/LeadForm";
+import Beliefs from "../components/Beliefs";
+import TrustStack from "../components/TrustStack";
+import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
 
-function Home() {
+const App: React.FC = () => {
   return (
-    <main>
-      <NavigationSection />
-      <HeroSection />
-      <TestimonialsSection />
-      <FeaturesSection />
-      <SetupSection />
-      <HealthcareProfessionalsSection />
-      <FormSection />
-      <BeliefsSection />
-      <FooterSection />
-    </main>
+    <div className="min-h-screen flex flex-col font-sans">
+      <Header />
+      <main className="flex-grow">
+        <Hero />
+        <ProofRow />
+        <FeatureCards />
+        <GrowthTabs />
+        <ProblemRelief />
+        <ExamplePreview />
+        <CaseStudy />
+        <LeadForm />
+        <Beliefs />
+        <TrustStack />
+        <FAQ />
+      </main>
+      <Footer />
+    </div>
   );
-}
+};
 
-export default Home;
+export default App;
