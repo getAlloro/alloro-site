@@ -60,7 +60,9 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex gap-4 pt-2">
               <div className="flex items-center gap-2 text-slate-400 text-sm hover:text-white transition-colors cursor-pointer">
-                <Mail size={16} /> hello@getalloro.com
+                <a href="mailto:info@getalloro.com">
+                  <Mail size={16} /> info@getalloro.com
+                </a>
               </div>
             </div>
           </div>
