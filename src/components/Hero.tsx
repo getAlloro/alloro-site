@@ -318,8 +318,8 @@ const Hero: React.FC = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed mb-8 sm:mb-12 px-2">
-          Built for orthodontic and endodontic practices to audit and optimize your online presence so patients and AI can find you powered by verified data that shows what's working and what to fix next.
+        <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mb-8 sm:mb-12 px-2">
+          Built for orthodontic and endodontic practices to audit and optimize your online presence so patients and AI can find you. <span className="font-semibold">Powered by verified data that shows what's working and what to fix next.</span>
         </p>
 
         {/* Search or Confirm Card */}
