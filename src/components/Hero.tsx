@@ -309,27 +309,17 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        {/* Trust Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6 sm:mb-8 animate-fade-in-up">
-          <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-alloro-500 text-alloro-500" />
-          <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-600">
-            Not a marketing agency. Not a generic dashboard.
-          </span>
-        </div>
-
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]">
-          Practice Revenue Clarity, <br className="hidden md:block" />
-          <span className="relative inline-block">
-            <span className="relative z-10 text-alloro-500">Powered by AI</span>
+          See if your Practice is being <span className="relative inline-block">
+            <span className="relative z-10 text-alloro-500">found online by Patients</span>
             <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-alloro-100/50 -z-10 transform -rotate-1"></span>
           </span>
         </h1>
 
         {/* Subheadline */}
         <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed mb-8 sm:mb-12 px-2">
-          Built for orthodontic and endodontic practices to see what's working,
-          what's not, and what to fix next using verified data.
+          Built for orthodontic and endodontic practices to audit and optimize your online presence so patients and AI can find you powered by verified data that shows what's working and what to fix next.
         </p>
 
         {/* Search or Confirm Card */}
