@@ -49,8 +49,15 @@ const LeadForm: React.FC = () => {
     try {
       await sendDemoRequestEmails(formData);
 
-      // Fire conversion event immediately after successful API call
+      // Fire custom lead_submit event immediately after successful API call
       if (window.gtag) {
+        window.gtag('event', 'lead_submit', {
+          event_category: 'form',
+          event_label: 'demo_request_form',
+          value: 1
+        });
+
+        // Fire conversion event
         window.gtag('event', 'conversion', {
           'conversion_id': 'lead_submission',
           'conversion_label': 'demo_request_submitted'

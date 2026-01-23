@@ -6,7 +6,7 @@ import { Check, ArrowLeft } from 'lucide-react';
 
 const Success: React.FC = () => {
   useEffect(() => {
-    // Fire conversion event for gtag
+    // Fire gtag events for success page
     if (window.gtag) {
       // Log page view
       window.gtag('event', 'page_view', {
@@ -14,7 +14,7 @@ const Success: React.FC = () => {
         page_title: 'Demo Request Success'
       });
 
-      // Log conversion event
+      // Fire backup conversion event
       window.gtag('event', 'conversion', {
         'conversion_id': 'lead_submission_success',
         'conversion_label': 'demo_request_success'
