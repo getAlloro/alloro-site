@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Button from './Button';
 import { Check, Search, TrendingUp, ArrowRight, ShieldCheck, Star, Loader2 } from 'lucide-react';
 import { sendDemoRequestEmails, DemoRequestFormData } from '../utils/emailService';
 
 const LeadForm: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [captchaLoading, setCaptchaLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,11 +48,23 @@ const LeadForm: React.FC = () => {
 
     try {
       await sendDemoRequestEmails(formData);
-      setSubmitted(true);
+
+      // Fire conversion event immediately after successful API call
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          'conversion_id': 'lead_submission',
+          'conversion_label': 'demo_request_submitted'
+        });
+      }
+
+      // Reset form and navigate to success page
       recaptchaRef.current?.reset();
       captchaTokenRef.current = null;
       setCaptchaVerified(false);
       setFormData({ name: '', email: '', phone: '', website: '' });
+
+      // Navigate to success page
+      navigate('/success');
     } catch (err) {
       setError('Failed to submit. Please try again.');
       console.error('Demo request submission failed:', err);
@@ -59,25 +72,6 @@ const LeadForm: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-
-  if (submitted) {
-     return (
-        <section id="lead-capture" className="py-24 bg-slate-900 relative overflow-hidden">
-             <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
-                 <div className="w-24 h-24 bg-gradient-to-br from-success-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-emerald-900/50 ring-4 ring-emerald-500/20">
-                     <Check className="w-12 h-12 text-white" />
-                 </div>
-                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Report Requested!</h2>
-                 <p className="text-xl text-slate-300 mb-10 max-w-xl mx-auto leading-relaxed">
-                     We're analyzing your practice data now. Check your email in a few minutes for your personalized growth roadmap.
-                 </p>
-                 <Button onClick={() => setSubmitted(false)} className="bg-alloro-500 text-white hover:bg-alloro-600 px-8 py-4">
-                    Submit Another Practice
-                 </Button>
-             </div>
-        </section>
-     )
-  }
 
   return (
     <section id="lead-capture" className="py-20 lg:py-32 bg-slate-900 relative overflow-hidden">
