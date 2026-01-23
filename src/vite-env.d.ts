@@ -7,3 +7,7 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+interface Window {
+  gtag?: (command: string, action: string, params?: Record<string, string | number | boolean>) => void;
+}
