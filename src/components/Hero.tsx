@@ -301,7 +301,7 @@ const Hero: React.FC = () => {
   );
 
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-48 lg:pb-40 overflow-hidden min-h-[600px] lg:min-h-[800px] flex flex-col justify-center">
+    <section className="relative pt-32 pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-40 overflow-hidden min-h-[600px] lg:min-h-[700px] flex flex-col justify-center">
       {/* Background Gradient Mesh */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-20%] right-[-10%] w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] bg-alloro-50/50 rounded-full blur-3xl opacity-60 animate-pulse-slow"></div>
@@ -309,21 +309,36 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]">
-          See if your Practice is being <span className="relative inline-block">
-            <span className="relative z-10 text-alloro-500">found online by Patients</span>
-            <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-alloro-100/50 -z-10 transform -rotate-1"></span>
-          </span>
-        </h1>
 
-        {/* Subheadline */}
-        <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mb-8 sm:mb-12 px-2">
-          Built for orthodontic and endodontic practices to audit and optimize your online presence so patients and AI can find you. <span className="font-semibold">Powered by verified data that shows what's working and what to fix next.</span>
-        </p>
+        {step === "search" ? (
+          <>
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]">
+              Practice revenue clarity, <br className="hidden md:block"/>
+              <span className="relative inline-block">
+                <span className="relative z-10 text-alloro-500">powered by AI</span>
+                <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-alloro-100/50 -z-10 transform -rotate-1"></span>
+              </span>
+            </h1>
 
-        {/* Search or Confirm Card */}
-        {step === "search" ? renderSearchStep() : renderConfirmStep()}
+            {/* Subheadline */}
+            <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed mb-8 sm:mb-12 px-2">
+              Built for orthodontic and endodontic practices to see what's working, what's not, and what to fix next using verified data.
+            </p>
+
+            {/* Search Interface */}
+            {renderSearchStep()}
+          </>
+        ) : (
+          <>
+            {/* Minified Headline for confirm step */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8 sm:mb-10 animate-fade-in">
+              Practice <span className="text-alloro-500">Analyzer</span>
+            </h2>
+
+            {renderConfirmStep()}
+          </>
+        )}
       </div>
     </section>
   );

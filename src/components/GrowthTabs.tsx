@@ -1,34 +1,42 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, BarChart2, Users, Eye, Star } from 'lucide-react';
 
 const tabs = [
   {
     id: 1,
-    label: "Maximize Google Visibility",
-    title: "Improve Local Visibility",
-    description: "Most patients discover specialty practices through Google. ALLORO shows how visible your practice is locally, what’s limiting discovery, and which changes matter most using verified, public data.\n\nWe identify what’s limiting visibility and highlight the highest-impact actions based on real data.",
-    image: "https://media.licdn.com/dms/image/v2/D5612AQHOvMLmWE8dIQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1720772981742?e=2147483647&v=beta&t=eTjXGl9k1lMkHZsbM6P8MQp4vJY5JqYZGNNxXLQXLFY"
+    label: "Maximize Visibility",
+    icon: <Eye className="w-5 h-5" />,
+    title: "Improve local visibility",
+    description: "Most patients discover specialty practices through Google. Alloro shows how visible your practice is locally and exactly what's limiting discovery.",
+    highlight: "We identify the highest-impact actions based on real data.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80"
   },
   {
     id: 2,
-    label: "More High-Value Patients",
-    title: "Turn Interest Into Appointments",
-    description: "Visibility only matters when patients can actually book. ALLORO highlights missed calls, booking gaps, and access issues that prevent interested patients from becoming appointments.\n\nImprove patient access, reduce leakage, and support sustainable practice growth.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    label: "Capture Patients",
+    icon: <Users className="w-5 h-5" />,
+    title: "Turn interest into appointments",
+    description: "Visibility only matters when patients can actually book. Alloro highlights missed calls and booking gaps that prevent interested patients from converting.",
+    highlight: "Reduce leakage and support sustainable practice growth.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80"
   },
   {
     id: 3,
-    label: "More Practice Clarity",
+    label: "Practice Clarity",
+    icon: <BarChart2 className="w-5 h-5" />,
     title: "Stop guessing. Start knowing.",
-    description: "ALLORO gives you a clear view of how your practice is performing across patient access, booking trends, visibility, and operational signals, all in one place.\n\nStop guessing and start making confident, data-driven decisions that improve efficiency and decision confidence.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    description: "Get a clear view of how your practice is performing across patient access, booking trends, and visibility, all in one place.",
+    highlight: "Make confident, data-driven decisions that improve efficiency.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80"
   },
   {
     id: 4,
-    label: "Build Stronger Reputation",
-    title: "Turn Your Online Presence Into Trust",
-    description: "ALLORO shows how reviews, patient feedback, and reputation signals impact trust and visibility, and where focused improvements make the biggest difference.\n\nImprove credibility, strengthen trust, and support referral growth naturally, all from a mobile-friendly platform you can access anytime, anywhere.",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    label: "Build Reputation",
+    icon: <Star className="w-5 h-5" />,
+    title: "Turn presence into trust",
+    description: "See how reviews and feedback impact trust. Alloro shows you where focused improvements make the biggest difference for your reputation.",
+    highlight: "Strengthen trust and support referral growth naturally.",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80"
   }
 ];
 
@@ -43,60 +51,98 @@ const GrowthTabs: React.FC = () => {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-white border-t border-slate-100">
+    <section className="py-24 lg:py-32 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Tab Navigation */}
-        <div className="flex flex-row w-full overflow-x-auto no-scrollbar border-b border-slate-200 mb-10 sm:mb-16 pb-1">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className="group flex-none sm:flex-1 min-w-[200px] sm:min-w-0 pb-4 focus:outline-none relative mr-6 sm:mr-0 last:mr-0 text-left sm:text-center"
-            >
-              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4 px-1 sm:px-2">
-                <span className={`text-xl sm:text-2xl font-bold font-serif ${activeTab === tab.id ? 'text-slate-300' : 'text-slate-200'}`}>
-                  {tab.id}
-                </span>
-                <span className={`text-base sm:text-lg font-bold transition-colors ${activeTab === tab.id ? 'text-slate-900' : 'text-slate-500 group-hover:text-slate-700'}`}>
-                  {tab.label}
-                </span>
-              </div>
-              
-              {/* Animated Underline */}
-              <div className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-100 rounded-full"></div>
-              <div className={`absolute bottom-0 left-0 h-[3px] bg-slate-900 transition-all duration-300 ease-in-out rounded-full ${activeTab === tab.id ? 'w-full' : 'w-0'}`}></div>
-            </button>
-          ))}
+
+        {/* Centered Heading */}
+        <div className="text-center max-w-5xl mx-auto mb-16 md:mb-20">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight whitespace-normal md:whitespace-nowrap">
+               Why leading practices <span className="text-alloro-500">choose Alloro.</span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+               Built specifically for the needs of modern orthodontic and endodontic specialists.
+            </p>
         </div>
 
-        {/* Tab Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
-            
-            {/* Text Content */}
-            <div className="order-2 lg:order-1 animate-fade-in">
-                <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                    {tabs[activeTab - 1].title}
-                </h3>
-                <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed whitespace-pre-line">
-                    {tabs[activeTab - 1].description}
-                </p>
-                <button 
-                  onClick={scrollToForm}
-                  className="text-slate-900 font-bold text-lg flex items-center gap-2 group hover:text-alloro-600 transition-colors"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+            {/* Left Column: Vertical Interactive Navigation */}
+            <div className="lg:col-span-5 space-y-3 lg:mt-8">
+                {tabs.map((tab) => (
+                <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`w-full text-left p-6 rounded-2xl transition-all duration-300 group relative overflow-hidden border ${activeTab === tab.id ? 'bg-slate-50 border-alloro-200 scale-[1.02]' : 'bg-white border-transparent hover:bg-slate-50 hover:border-slate-100'}`}
                 >
-                    Start Growing <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    {/* Active Indicator Strip */}
+                    <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-colors duration-300 ${activeTab === tab.id ? 'bg-alloro-500' : 'bg-transparent'}`}></div>
+
+                    <div className="flex items-start gap-4">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${activeTab === tab.id ? 'bg-alloro-500 text-white shadow-lg shadow-alloro-500/30' : 'bg-slate-100 text-slate-500 group-hover:bg-white group-hover:text-alloro-500'}`}>
+                        {tab.icon}
+                        </div>
+                        <div>
+                            <h3 className={`text-lg font-bold mb-1 transition-colors ${activeTab === tab.id ? 'text-slate-900' : 'text-slate-500 group-hover:text-slate-900'}`}>
+                            {tab.label}
+                            </h3>
+                            {activeTab === tab.id && (
+                            <p className="text-slate-600 text-sm leading-relaxed animate-in fade-in slide-in-from-left-2 duration-300">
+                                {tab.title}
+                            </p>
+                            )}
+                        </div>
+                        {activeTab !== tab.id && (
+                            <ChevronRight className="ml-auto w-5 h-5 text-slate-300 group-hover:text-alloro-400 opacity-0 group-hover:opacity-100 transition-all" />
+                        )}
+                    </div>
                 </button>
+                ))}
             </div>
 
-            {/* Image Content */}
-            <div className="order-1 lg:order-2 h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-slate-100 relative group">
-                <img 
-                    src={tabs[activeTab - 1].image} 
-                    alt={tabs[activeTab - 1].label}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors"></div>
+            {/* Right Column: Dynamic Visual Content */}
+            <div className="lg:col-span-7 lg:h-[600px] sticky top-24">
+                <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-900 group">
+
+                    {/* Background Image with Overlay */}
+                    <img
+                        src={tabs[activeTab - 1].image}
+                        alt={tabs[activeTab - 1].label}
+                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-90 group-hover:scale-105"
+                    />
+
+                    {/* Darker Gradient for Readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/30"></div>
+
+                    {/* Content Overlay */}
+                    <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 animate-fade-in z-10">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-alloro-500 text-white text-xs font-bold uppercase tracking-widest rounded-full mb-6 shadow-lg shadow-alloro-900/20">
+                             {tabs[activeTab - 1].label}
+                        </div>
+                        <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight drop-shadow-sm">
+                            {tabs[activeTab - 1].title}
+                        </h3>
+                        <p className="text-lg text-slate-200 mb-8 max-w-lg leading-relaxed font-medium">
+                            {tabs[activeTab - 1].description}
+                        </p>
+
+                        <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 mb-8 shadow-inner">
+                             <div className="flex gap-3">
+                                 <div className="w-1 bg-alloro-500 rounded-full shrink-0"></div>
+                                 <p className="text-white font-medium">
+                                    {tabs[activeTab - 1].highlight}
+                                 </p>
+                             </div>
+                        </div>
+
+                        <button
+                            onClick={scrollToForm}
+                            className="text-white font-bold text-lg flex items-center gap-2 group hover:text-alloro-400 transition-colors"
+                        >
+                            Start growing <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
+
+                </div>
             </div>
 
         </div>

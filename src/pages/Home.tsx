@@ -22,8 +22,8 @@ const App: React.FC = () => {
         <ProofRow />
         <FeatureCards />
         <GrowthTabs />
-        <ProblemRelief />
         <ExamplePreview />
+        <ProblemRelief />
         <CaseStudy />
         <LeadForm />
         <Beliefs />

@@ -66,7 +66,7 @@ const CaseStudy: React.FC = () => {
   const currentStudy = caseStudies[currentIndex];
 
   return (
-    <section className="bg-[#F2F0EB] py-20 lg:py-32">
+    <section className="bg-[#F2F0EB] py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Card - Metro Pizza Style */}
@@ -76,7 +76,7 @@ const CaseStudy: React.FC = () => {
             <div className="flex-1 flex flex-col justify-between py-2 md:py-4 animate-fade-in order-2 lg:order-1">
                 
                 <div>
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-2 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-2 tracking-tight">
                         {currentStudy.name}
                     </h2>
                     <h3 className="text-xl md:text-3xl font-medium text-slate-500 mb-6 md:mb-8">

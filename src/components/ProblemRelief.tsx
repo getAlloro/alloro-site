@@ -10,7 +10,7 @@ const ProblemRelief: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-slate-900 text-white relative overflow-hidden">
       
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none opacity-40">
@@ -21,7 +21,7 @@ const ProblemRelief: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-12">
-           <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
              Running a practice is hard enough.
            </h2>
         </div>
@@ -34,7 +34,7 @@ const ProblemRelief: React.FC = () => {
                <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/20">
                  <X size={18} className="text-red-400" />
                </div>
-               <h3 className="text-lg font-bold text-slate-200">The Hard Way</h3>
+               <h3 className="text-lg font-bold text-slate-200">The hard way</h3>
             </div>
             <ul className="space-y-5 flex-grow">
                {problems.map((p, i) => (
@@ -55,7 +55,7 @@ const ProblemRelief: React.FC = () => {
                <div className="w-10 h-10 rounded-full bg-alloro-500/20 flex items-center justify-center border border-alloro-500/30">
                  <Check size={18} className="text-alloro-500" />
                </div>
-               <h3 className="text-lg font-bold text-white">The Alloro Way</h3>
+               <h3 className="text-lg font-bold text-white">The Alloro way</h3>
             </div>
 
             <div className="flex flex-col justify-center flex-grow space-y-4 relative z-10 pl-2">
@@ -69,7 +69,7 @@ const ProblemRelief: React.FC = () => {
                </div>
 
                <div className="flex items-center gap-4">
-                  <span className="text-3xl font-serif italic text-alloro-400">Clearly</span>
+                  <span className="text-3xl font-medium text-alloro-400">Clearly</span>
                </div>
 
                <div className="pl-6">

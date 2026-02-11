@@ -1,41 +1,62 @@
 import React from 'react';
-import { UserCheck, Zap, BarChart3, RotateCcw, Award } from 'lucide-react';
+import { UserCheck, Zap, BarChart3, RotateCcw, ShieldCheck } from 'lucide-react';
 
-const TrustItem: React.FC<{ icon: React.ReactNode; text: string }> = ({ icon, text }) => (
-  <div className="flex flex-col items-center text-center gap-2 p-4">
-    <div className="text-alloro-600 mb-1">{icon}</div>
-    <span className="text-sm font-medium text-slate-700">{text}</span>
+const TrustItem: React.FC<{ icon: React.ReactNode; title: string; desc: string }> = ({ icon, title, desc }) => (
+  <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow h-full">
+    <div className="w-14 h-14 rounded-full bg-alloro-50 flex items-center justify-center text-alloro-600 mb-4 group-hover:scale-110 transition-transform">
+        {icon}
+    </div>
+    <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+    <p className="text-sm text-slate-500 leading-relaxed">
+        {desc}
+    </p>
   </div>
 );
 
 const TrustStack: React.FC = () => {
   return (
-    <section className="bg-slate-50 py-20 lg:py-28 border-t border-slate-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <TrustItem 
+    <section className="bg-slate-50 py-24 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                Our promise <span className="text-alloro-500">to your practice.</span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+                Simple, transparent, and built for you.
+            </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <TrustItem
             icon={<UserCheck size={28} />}
-            text="Built for specialty practices"
+            title="Built for Specialists"
+            desc="Designed specifically for orthodontic and endodontic workflows."
           />
-          <TrustItem 
+          <TrustItem
             icon={<Zap size={28} />}
-            text="No setup burden"
+            title="No Setup Burden"
+            desc="Connect your existing accounts. We handle the heavy lifting."
           />
-          <TrustItem 
+          <TrustItem
             icon={<BarChart3 size={28} />}
-            text="Every metric is verifiable"
+            title="Verifiable Metrics"
+            desc="Every insight is backed by real source data you can check."
           />
-          <TrustItem 
+          <TrustItem
             icon={<RotateCcw size={28} />}
-            text="Everything is reversible in seconds"
+            title="Total Control"
+            desc="Cancel anytime. Reversible in seconds. You own your data."
           />
         </div>
 
-        <div className="flex justify-center">
-            <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-alloro-100 shadow-sm">
-                <Award className="text-yellow-500 w-5 h-5" />
-                <span className="text-slate-800 font-semibold text-sm">30-Day Clarity & Control Guarantee</span>
+        {/* Guarantee Badge */}
+        <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-xl p-4 flex items-center justify-center gap-3 border border-alloro-100 shadow-sm">
+                <ShieldCheck className="text-alloro-500 w-6 h-6 shrink-0" />
+                <span className="text-slate-800 font-bold text-sm sm:text-base">
+                    Protected by the <span className="text-alloro-600">30-Day Clarity & Control Guarantee</span>
+                </span>
             </div>
         </div>
 

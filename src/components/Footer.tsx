@@ -1,15 +1,7 @@
 import React from "react";
-import Button from "./Button";
 import { Mail } from "lucide-react";
 
 const Footer: React.FC = () => {
-  const scrollToForm = () => {
-    const element = document.getElementById("lead-capture");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className="bg-slate-950 pt-16 md:pt-24 pb-12 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,12 +22,12 @@ const Footer: React.FC = () => {
               start growing with confidence.
             </p>
             <div className="flex justify-center">
-              <Button
-                onClick={scrollToForm}
-                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold !bg-[#d66e53] !hover:bg-[#c1583e] !text-white !border-none shadow-xl shadow-[#d66e53]/20 rounded-2xl transform transition-transform hover:-translate-y-1"
+              <a
+                href="https://audit.getalloro.com"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold bg-[#d66e53] hover:bg-[#c1583e] text-white border-none shadow-xl shadow-[#d66e53]/20 rounded-2xl transform transition-transform hover:-translate-y-1"
               >
-                Get Free Practice Analysis
-              </Button>
+                Get free practice analysis
+              </a>
             </div>
           </div>
         </div>
@@ -79,7 +71,7 @@ const Footer: React.FC = () => {
                   href="/privacy"
                   className="hover:text-[#d66e53] transition-colors"
                 >
-                  Privacy Policy
+                  Privacy policy
                 </a>
               </li>
               <li>
@@ -87,7 +79,7 @@ const Footer: React.FC = () => {
                   href="/terms"
                   className="hover:text-[#d66e53] transition-colors"
                 >
-                  Terms of Service
+                  Terms of service
                 </a>
               </li>
             </ul>

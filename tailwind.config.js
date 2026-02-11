@@ -16,8 +16,13 @@ export default {
           800: "#8A3C28",
           900: "#1E293B",
         },
+        success: {
+          500: "#10B981",
+          50: "#ECFDF5",
+        },
       },
       boxShadow: {
+        soft: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
         glow: "0 0 15px rgba(214, 110, 83, 0.2)",
       },
     },

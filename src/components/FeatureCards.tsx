@@ -24,11 +24,11 @@ const FeatureCards: React.FC = () => {
         
         {/* Added Section Heading */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
             Practice growth <span className="text-alloro-500">without guesswork</span>
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            You focus on patient care. ALLORO shows you where patients are finding you, where they’re dropping off, and what actions actually improve revenue.
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+            You focus on patient care. Alloro shows you where patients are finding you, where they're dropping off, and what actions actually improve revenue.
           </p>
         </div>
 
@@ -41,12 +41,12 @@ const FeatureCards: React.FC = () => {
           <FeatureCard 
             icon={<ShieldCheck size={28} />}
             title="Data you can trust"
-            description="ALLORO provides real, verifiable data in real time. No inflated numbers. No guesswork."
+            description="Alloro provides real, verifiable data in real time. No inflated numbers. No guesswork."
           />
           <FeatureCard 
             icon={<Compass size={28} />}
-            title="Clear, Actionable Steps"
-            description="ALLORO highlights the highest-impact actions to improve patient access, visibility, and conversion."
+            title="Clear, actionable steps"
+            description="Alloro highlights the highest-impact actions to improve patient access, visibility, and conversion."
           />
         </div>
       </div>

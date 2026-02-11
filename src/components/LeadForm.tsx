@@ -81,7 +81,7 @@ const LeadForm: React.FC = () => {
   };
 
   return (
-    <section id="lead-capture" className="py-20 lg:py-32 bg-slate-900 relative overflow-hidden">
+    <section id="lead-capture" className="py-24 lg:py-32 bg-slate-900 relative overflow-hidden">
       
       {/* Sophisticated Gradient Background */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -99,11 +99,11 @@ const LeadForm: React.FC = () => {
                 
                 <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-[1.05] tracking-tight">
                     See Alloro <br/>
-                    <span className="text-[#d66e53]">In Action.</span>
+                    <span className="text-[#d66e53]">in action.</span>
                 </h2>
                 
                 <p className="text-lg sm:text-xl text-slate-400 mb-10 sm:mb-12 max-w-lg leading-relaxed font-light">
-                    Book a free demo. In 15 minutes, we’ll show you how ALLORO works, what it looks at, and how it helps you understand what’s working and what to improve.
+                    Book a free demo. In 15 minutes, we'll show you how Alloro works, what it looks at, and how it helps you understand what's working and what to improve.
                 </p>
 
                 <div className="space-y-6 sm:space-y-8">
@@ -112,7 +112,7 @@ const LeadForm: React.FC = () => {
                             <Search className="text-[#d66e53]" size={24} />
                         </div>
                         <div>
-                            <h4 className="text-white font-bold text-lg sm:text-xl mb-1 sm:mb-2">Identify Missed Opportunities</h4>
+                            <h4 className="text-white font-bold text-lg sm:text-xl mb-1 sm:mb-2">Identify missed opportunities</h4>
                             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">See where patients are dropping off and understand what to improve, clearly and based on real data.</p>
                         </div>
                     </div>
@@ -122,7 +122,7 @@ const LeadForm: React.FC = () => {
                             <TrendingUp className="text-[#d66e53]" size={24} />
                         </div>
                         <div>
-                            <h4 className="text-white font-bold text-lg sm:text-xl mb-1 sm:mb-2">Get Clear Direction</h4>
+                            <h4 className="text-white font-bold text-lg sm:text-xl mb-1 sm:mb-2">Get clear direction</h4>
                             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">Understand how your practice compares locally and what steps matter most to improve visibility and performance.</p>
                         </div>
                     </div>
@@ -136,7 +136,7 @@ const LeadForm: React.FC = () => {
 
                 <div className="bg-white/95 backdrop-blur-sm rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 shadow-2xl shadow-black/20 border border-white/50">
                     <div className="flex items-center justify-between mb-6 sm:mb-8">
-                        <h3 className="text-2xl font-bold text-slate-900">Request Your Demo</h3>
+                        <h3 className="text-2xl font-bold text-slate-900">Request your demo</h3>
                         <div className="w-10 h-10 bg-alloro-50 rounded-full flex items-center justify-center">
                             <Star className="w-5 h-5 text-alloro-500 fill-alloro-500" />
                         </div>
@@ -144,7 +144,7 @@ const LeadForm: React.FC = () => {
                     
                     <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                         <div className="space-y-1">
-                            <label htmlFor="name" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Full Name</label>
+                            <label htmlFor="name" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Full name</label>
                             <input
                               type="text"
                               id="name"
@@ -157,7 +157,7 @@ const LeadForm: React.FC = () => {
                         </div>
 
                         <div className="space-y-1">
-                            <label htmlFor="website" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Practice Website</label>
+                            <label htmlFor="website" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Practice website</label>
                             <div className="relative">
                                 <input
                                   type="text"
@@ -176,7 +176,7 @@ const LeadForm: React.FC = () => {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                              <div className="space-y-1">
-                                <label htmlFor="email" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Work Email</label>
+                                <label htmlFor="email" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Work email</label>
                                 <input
                                   type="email"
                                   id="email"
@@ -189,7 +189,7 @@ const LeadForm: React.FC = () => {
                             </div>
 
                             <div className="space-y-1">
-                                <label htmlFor="phone" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Mobile Phone</label>
+                                <label htmlFor="phone" className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Mobile phone</label>
                                 <input
                                   type="tel"
                                   id="phone"
@@ -265,7 +265,7 @@ const LeadForm: React.FC = () => {
                                 </>
                               ) : (
                                 <>
-                                  Book Demo Today <ArrowRight className="ml-2 w-5 h-5" />
+                                  Book demo today <ArrowRight className="ml-2 w-5 h-5" />
                                 </>
                               )}
                             </Button>
