@@ -47,13 +47,14 @@ const ExamplePreview: React.FC = () => {
 
               {/* Video Frame */}
               <div className="relative aspect-video w-full bg-black group-hover:shadow-[0_0_50px_-12px_rgba(214,110,83,0.2)] transition-shadow duration-700">
-                 <iframe
-                    src="https://drive.google.com/file/d/1fOs_QPm7cRtr0M8ZfYpASx_epeFlEGm4/preview"
+                 <video
+                    src="https://alloro-main-bucket.s3.us-east-1.amazonaws.com/imports/walkthrough.mp4"
                     className="absolute inset-0 w-full h-full z-20"
-                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    controls
+                    playsInline
+                    preload="metadata"
                     title="Alloro Onboarding Demo"
-                    style={{ border: 'none' }}
-                 ></iframe>
+                 />
 
                  {/* Loading/Placeholder State (visible while loading) */}
                  <div className="absolute inset-0 bg-slate-900 flex items-center justify-center z-10">
