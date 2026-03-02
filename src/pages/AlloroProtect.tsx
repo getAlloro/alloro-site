@@ -60,7 +60,7 @@ export default function AlloroProtect() {
                 How It Works
               </h2>
               <p className="text-[15px] leading-relaxed text-[#666666] md:text-[16px]">
-                Every form submission passes through six independent security
+                Every form submission passes through ten independent security
                 checks before being accepted. If any check fails, the submission
                 is silently rejected &mdash; bots never learn what stopped them.
               </p>
@@ -140,6 +140,61 @@ export default function AlloroProtect() {
                 too many requests in a short window, further submissions are
                 blocked. This catches both simple bots and more sophisticated
                 distributed spam.
+              </p>
+            </div>
+
+            {/* Layer 7 */}
+            <div className="space-y-4">
+              <h3 className="text-[18px] font-semibold text-black md:text-[20px]">
+                7. Origin Validation
+              </h3>
+              <p className="text-[15px] leading-relaxed text-[#666666] md:text-[16px]">
+                Every submission is checked against the expected origin of your
+                website. Requests that don&apos;t come from your site&apos;s domain
+                are silently rejected. This prevents attackers from submitting
+                forms directly to your endpoint from external tools or scripts.
+              </p>
+            </div>
+
+            {/* Layer 8 */}
+            <div className="space-y-4">
+              <h3 className="text-[18px] font-semibold text-black md:text-[20px]">
+                8. Content Pattern Analysis
+              </h3>
+              <p className="text-[15px] leading-relaxed text-[#666666] md:text-[16px]">
+                Submission content is scored against known spam patterns &mdash;
+                excessive URLs, spam keywords, all-caps text, repeated values
+                across fields, and gibberish. High-scoring submissions are
+                silently discarded before they ever reach your inbox.
+              </p>
+            </div>
+
+            {/* Layer 9 */}
+            <div className="space-y-4">
+              <h3 className="text-[18px] font-semibold text-black md:text-[20px]">
+                9. JavaScript Verification
+              </h3>
+              <p className="text-[15px] leading-relaxed text-[#666666] md:text-[16px]">
+                A cryptographic challenge is computed in the browser when the
+                page loads and verified on our servers when the form is submitted.
+                Bots that don&apos;t execute JavaScript &mdash; which is most of
+                them &mdash; cannot produce a valid response and are silently
+                blocked.
+              </p>
+            </div>
+
+            {/* Layer 10 */}
+            <div className="space-y-4">
+              <h3 className="text-[18px] font-semibold text-black md:text-[20px]">
+                10. AI-Powered Content Screening
+              </h3>
+              <p className="text-[15px] leading-relaxed text-[#666666] md:text-[16px]">
+                Every submission that passes all previous checks is analyzed by
+                AI to classify its intent. Sales pitches, SEO spam, vendor
+                outreach, abusive content, and other unwanted messages are
+                automatically flagged. Flagged submissions are saved for your
+                review but won&apos;t clutter your inbox &mdash; only real
+                customer inquiries trigger email notifications.
               </p>
             </div>
 
