@@ -314,16 +314,16 @@ const Hero: React.FC = () => {
           <>
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]">
-              Practice revenue clarity, <br className="hidden md:block"/>
+              Stop guessing why <br className="hidden md:block"/>
               <span className="relative inline-block">
-                <span className="relative z-10 text-alloro-500">powered by AI</span>
+                <span className="relative z-10 text-alloro-500">revenue slips through</span>
                 <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-alloro-100/50 -z-10 transform -rotate-1"></span>
               </span>
             </h1>
 
             {/* Subheadline */}
             <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed mb-8 sm:mb-12 px-2">
-              Built for orthodontic and endodontic practices to see what's working, what's not, and what to fix next using verified data.
+              Alloro connects to your practice data and shows exactly where you're losing money — so you can fix it this week, not next quarter.
             </p>
 
             {/* Search Interface */}
