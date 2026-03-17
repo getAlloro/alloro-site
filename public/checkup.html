@@ -223,7 +223,6 @@
                 <!-- Netlify Forms: data-netlify="true" enables built-in form handling -->
                 <!-- Slack notification configured in Netlify dashboard: Settings > Forms > Notifications -->
                 <form
-                    id="checkup-form"
                     action="https://formspree.io/f/mgonpwaz"
                     method="POST"
                     class="form-container"
@@ -327,58 +326,5 @@
                 </p>
             </div>
         </section>
-
-        <script>
-            document
-                .getElementById("checkup-form")
-                .addEventListener("submit", function (e) {
-                    e.preventDefault();
-
-                    var form = e.target;
-                    var btn = document.getElementById("submit-btn");
-                    var errorMsg = document.getElementById("error-msg");
-
-                    btn.disabled = true;
-                    btn.textContent = "Sending...";
-                    errorMsg.style.display = "none";
-
-                    var formData = new FormData(form);
-
-                    fetch("https://formspree.io/f/mgonpwaz", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-                            "Accept": "application/json",
-                        },
-                        body: new URLSearchParams(formData).toString(),
-                    })
-                        .then(function (response) {
-                            if (response.ok) {
-                                document.getElementById(
-                                    "echo-practice",
-                                ).textContent = form.practice_name.value;
-                                document.getElementById(
-                                    "echo-location",
-                                ).textContent = form.location.value;
-                                document.getElementById(
-                                    "echo-email",
-                                ).textContent = form.email.value;
-                                document.getElementById(
-                                    "form-view",
-                                ).style.display = "none";
-                                document.getElementById(
-                                    "confirmation-view",
-                                ).style.display = "block";
-                            } else {
-                                throw new Error("Form submission failed");
-                            }
-                        })
-                        .catch(function () {
-                            btn.disabled = false;
-                            btn.textContent = "Send My Checkup";
-                            errorMsg.style.display = "block";
-                        });
-                });
-        </script>
     </body>
 </html>
