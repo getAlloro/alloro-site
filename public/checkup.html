@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Free Referral Base Checkup | Alloro</title>
@@ -193,13 +192,20 @@
         </style>
 
         <!-- GA4: Replace G-XXXXXXXXXX with your Measurement ID -->
-        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRV4CB9EBS"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-CRV4CB9EBS');
-    </script> -->
+    </script>
+    <script type="text/javascript">
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vx0q7zh5et");
+        </script>
     </head>
     <body>
         <section class="hero">
@@ -220,9 +226,8 @@
                     id="checkup-form"
                     action="https://formspree.io/f/mgonpwaz"
                     method="POST"
+                    class="form-container"
                 >
-                    name="checkup" method="POST" data-netlify="true"
-                    netlify-honeypot="bot-field" class="form-container">
                     <input type="hidden" name="form-name" value="checkup" />
                     <p style="display: none">
                         <label
@@ -301,8 +306,7 @@
                 </form>
 
                 <p class="trust-signal">
-                    Used by endodontists and orthodontists across the US. Your
-                    data stays yours.
+                    Used by endodontists and orthodontists across the US.
                 </p>
             </div>
 
@@ -340,7 +344,7 @@
 
                     var formData = new FormData(form);
 
-                    fetch("/", {
+                    fetch("https://formspree.io/f/mgonpwaz", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded",
