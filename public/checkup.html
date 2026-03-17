@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Referral Base Checkup | Alloro</title>
+    <meta name="description" content="Get a free map of your referral network. See which GPs are sending you cases, at what rate, and where the gaps are. Delivered in 48 hours. No call required.">
+    <meta property="og:title" content="Free Referral Base Checkup | Alloro">
+    <meta property="og:description" content="Your referral network is either growing or shrinking. Find out which in 48 hours, free.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://getalloro.com/checkup">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --navy: #212D40;
+            --terracotta: #D56753;
+            --terracotta-hover: #c25a48;
+            --white: #FFFFFF;
+            --text-secondary: #8A9BB0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: var(--white);
+            background: var(--navy);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 640px;
+            width: 100%;
+        }
+        h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        .subhead {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.25rem;
+            text-align: left;
+        }
+        .form-group:last-of-type {
+            margin-bottom: 0;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.375rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: var(--white);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+        input:focus, select:focus {
+            border-color: var(--terracotta);
+        }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238A9BB0' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        select option {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            background: var(--terracotta);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 1.5rem;
+        }
+        .submit-btn:hover {
+            background: var(--terracotta-hover);
+        }
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .trust-signal {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+        .confirmation {
+            display: none;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+        }
+        .confirmation h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .confirmation p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .confirmation .practice-echo {
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+        .error-msg {
+            display: none;
+            color: var(--terracotta);
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 1.5rem 1rem; }
+            .form-container { padding: 1.5rem 1.25rem; }
+        }
+    </style>
+
+    <!-- GA4: Replace G-XXXXXXXXXX with your Measurement ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content" id="form-view">
+            <h1>Your referral network is either growing or shrinking. You probably don't know which.</h1>
+            <p class="subhead">Get a free Referral Base Checkup -- a real map of which GPs are sending you cases, at what rate, and where the gaps are. Delivered in 48 hours. No call required.</p>
+
+            <!-- Netlify Forms: data-netlify="true" enables built-in form handling -->
+            <!-- Slack notification configured in Netlify dashboard: Settings > Forms > Notifications -->
+            <form id="checkup-form" name="checkup" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-container">
+                <input type="hidden" name="form-name" value="checkup">
+                <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+                <div class="form-group">
+                    <label for="doctor-name">Doctor name</label>
+                    <input type="text" id="doctor-name" name="doctor_name" placeholder="Dr. Sarah Chen" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="practice-name">Practice name</label>
+                    <input type="text" id="practice-name" name="practice_name" placeholder="Summit Endodontics" required autocomplete="organization">
+                </div>
+
+                <div class="form-group">
+                    <label for="specialty">Specialty</label>
+                    <select id="specialty" name="specialty" required>
+                        <option value="" disabled selected>Select your specialty</option>
+                        <option value="Endodontics">Endodontics</option>
+                        <option value="Orthodontics">Orthodontics</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Primary location (city, state)</label>
+                    <input type="text" id="location" name="location" placeholder="Salt Lake City, UT" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="doctor@practice.com" required autocomplete="email">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-btn">Send My Checkup</button>
+                <p class="error-msg" id="error-msg">Something went wrong. Please try again or email corey@getalloro.com directly.</p>
+            </form>
+
+            <p class="trust-signal">Used by endodontists and orthodontists across the US. Your data stays yours.</p>
+        </div>
+
+        <div class="confirmation" id="confirmation-view">
+            <h2>Your Checkup is in progress.</h2>
+            <p>We're pulling referral data for <span class="practice-echo" id="echo-practice"></span> in <span class="practice-echo" id="echo-location"></span>.</p>
+            <p>You'll receive your results at <span class="practice-echo" id="echo-email"></span> within 48 hours.</p>
+            <p style="margin-top: 1.5rem; font-size: 0.875rem;">No spam. No sales call unless you want one.</p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('checkup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var form = e.target;
+            var btn = document.getElementById('submit-btn');
+            var errorMsg = document.getElementById('error-msg');
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            errorMsg.style.display = 'none';
+
+            var formData = new FormData(form);
+
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    document.getElementById('echo-practice').textContent = form.practice_name.value;
+                    document.getElementById('echo-location').textContent = form.location.value;
+                    document.getElementById('echo-email').textContent = form.email.value;
+                    document.getElementById('form-view').style.display = 'none';
+                    document.getElementById('confirmation-view').style.display = 'block';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Send My Checkup';
+                errorMsg.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
