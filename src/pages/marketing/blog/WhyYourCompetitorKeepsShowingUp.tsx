@@ -3,6 +3,7 @@
  * Route: /blog/why-your-competitor-keeps-showing-up
  */
 
+import { AUDIT_BASE } from "../../../api/config";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import MarketingLayout from "../../../components/marketing/MarketingLayout";
@@ -120,13 +121,13 @@ export default function WhyYourCompetitorKeepsShowingUp() {
           <p className="text-sm text-[#212D40]/50 mb-4">
             Run the free Checkup. Your competitors, by name, in 60 seconds.
           </p>
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="inline-flex items-center gap-2 rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
           >
             See my market
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
 
         {/* Email capture */}

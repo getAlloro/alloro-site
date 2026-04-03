@@ -5,6 +5,7 @@
  * Blast radius: Red (pricing). Content matches approved spec only.
  */
 
+import { AUDIT_BASE } from "../../api/config";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
@@ -97,13 +98,13 @@ export default function PricingPage() {
 
           {/* CTA */}
           <div className="mt-10 text-center">
-            <Link
-              to="/checkup"
+            <a
+              href={AUDIT_BASE}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#D56753] text-white text-base font-semibold px-8 py-4 shadow-[0_4px_20px_rgba(213,103,83,0.4)] hover:brightness-110 active:scale-[0.98] transition-all"
             >
               See my numbers first
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
             <p className="mt-3 text-xs text-gray-400">
               See where you rank. Free. 60 seconds. Then decide.
             </p>

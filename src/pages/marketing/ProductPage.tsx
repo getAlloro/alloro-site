@@ -6,7 +6,7 @@
  * Locked copy from Website Architecture spec.
  */
 
-import { Link } from "react-router-dom";
+import { AUDIT_BASE } from "../../api/config";
 import { ArrowRight } from "lucide-react";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
 
@@ -36,12 +36,12 @@ export default function ProductPage() {
             Free. No account required. No pitch afterward.
             Just the truth.
           </p>
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="inline-flex items-center gap-2 rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
           >
             Run your free Checkup <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -127,12 +127,12 @@ export default function ProductPage() {
             <p>Veterans and first responders: Free. Always. Heroes Program.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
-            <Link
-              to="/checkup"
+            <a
+              href={AUDIT_BASE}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
             >
               See Where You Rank <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

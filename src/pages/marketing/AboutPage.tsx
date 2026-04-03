@@ -5,6 +5,7 @@
  * Locked copy from Website Architecture spec.
  */
 
+import { AUDIT_BASE } from "../../api/config";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
@@ -71,12 +72,12 @@ export default function AboutPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-6">
-            <Link
-              to="/checkup"
+            <a
+              href={AUDIT_BASE}
               className="inline-flex items-center gap-2 rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
             >
               See Where You Rank <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
             <Link
               to="/foundation"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-[#212D40]/15 text-[#212D40] text-sm font-semibold px-6 py-3 hover:border-[#212D40]/30 transition-colors"

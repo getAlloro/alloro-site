@@ -4,6 +4,7 @@
  * Three columns: brand, links, contact/trust.
  */
 
+import { AUDIT_BASE } from "../../api/config";
 import { Link } from "react-router-dom";
 
 export default function MarketingFooter() {
@@ -37,17 +38,27 @@ export default function MarketingFooter() {
               { label: "Pricing", to: "/pricing" },
               { label: "Our story", to: "/story" },
               { label: "Blog", to: "/blog" },
-              { label: "Checkup", to: "/checkup" },
-              { label: "Foundation", to: "/foundation" },
-            ].map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="text-xs font-medium text-gray-500 hover:text-[#212D40] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+              { label: "Checkup", href: AUDIT_BASE },
+              { label: "Foundation", href: "https://app.getalloro.com/foundation" },
+            ].map((link) =>
+              "href" in link ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-xs font-medium text-gray-500 hover:text-[#212D40] transition-colors"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-xs font-medium text-gray-500 hover:text-[#212D40] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
 

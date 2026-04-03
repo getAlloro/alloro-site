@@ -4,6 +4,7 @@
  * Why this exists. Corey's voice. No stock photos.
  */
 
+import { AUDIT_BASE } from "../../api/config";
 import { Link } from "react-router-dom";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
 
@@ -20,12 +21,12 @@ export default function Story() {
           <h1 className="text-3xl sm:text-4xl font-semibold text-[#212D40] tracking-tight">
             Why this exists.
           </h1>
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
           >
             See what your market looks like
-          </Link>
+          </a>
           <p className="mt-2 text-xs text-gray-400">Free. 60 seconds.</p>
         </div>
       </section>
@@ -138,12 +139,12 @@ export default function Story() {
       {/* CTA */}
       <section className="bg-[#D56753] px-5 py-12 sm:py-16">
         <div className="max-w-md mx-auto text-center">
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="inline-flex items-center justify-center rounded-xl bg-white text-[#212D40] text-base font-semibold px-8 py-4 hover:bg-gray-50 active:scale-[0.98] transition-all"
           >
             See where you rank
-          </Link>
+          </a>
         </div>
       </section>
 

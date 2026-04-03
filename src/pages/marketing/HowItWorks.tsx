@@ -4,7 +4,7 @@
  * Plain English. No tech language. Three stages + expanded Monday email + FAQ.
  */
 
-import { Link } from "react-router-dom";
+import { AUDIT_BASE } from "../../api/config";
 import { Search, Mail, Zap } from "lucide-react";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
 
@@ -24,12 +24,12 @@ export default function HowItWorks() {
             You type your business name. Monday morning, we tell you
             which competitor gained 11 reviews last week and what to do about it.
           </p>
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
           >
             See where you rank
-          </Link>
+          </a>
           <p className="mt-2 text-xs text-gray-400">60 seconds. No account required.</p>
         </div>
       </section>
@@ -161,12 +161,12 @@ export default function HowItWorks() {
       {/* CTA */}
       <section className="px-5 py-16 sm:py-20">
         <div className="max-w-md mx-auto text-center">
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[#D56753] text-white text-base font-semibold px-8 py-4 shadow-[0_4px_20px_rgba(213,103,83,0.4)] hover:brightness-110 active:scale-[0.98] transition-all"
           >
             See where you rank
-          </Link>
+          </a>
           <p className="mt-3 text-xs text-gray-400">
             Free. 60 seconds. No account required.
           </p>

@@ -5,6 +5,7 @@
  * which redirects to /checkup until posts are published.
  */
 
+import { AUDIT_BASE } from "../../api/config";
 import { Link } from "react-router-dom";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
 
@@ -48,12 +49,12 @@ export default function Blog() {
             One post a week. Each one comes from something
             we actually saw in client data. No aggregated advice.
           </p>
-          <Link
-            to="/checkup"
+          <a
+            href={AUDIT_BASE}
             className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#D56753] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all"
           >
             Run your free Checkup
-          </Link>
+          </a>
         </div>
       </section>
 
