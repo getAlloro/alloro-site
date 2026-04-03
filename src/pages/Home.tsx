@@ -1,3 +1,7 @@
+/**
+ * @deprecated Replaced by src/pages/marketing/HomePage.tsx (routed at "/").
+ * Kept for reference. Do not route to this component.
+ */
 import React from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";

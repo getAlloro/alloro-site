@@ -1,3 +1,7 @@
+/**
+ * @deprecated Replaced by src/pages/marketing/AboutPage.tsx (routed at "/about").
+ * Kept for reference. Do not route to this component.
+ */
 function About() {
   return (
     <div className="px-4 py-6">
