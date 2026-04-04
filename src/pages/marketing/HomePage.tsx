@@ -223,7 +223,7 @@ export default function HomePage() {
     >
 
       {/* ═══ HERO — Split layout, left-aligned ════════════════════════ */}
-      <section className="bg-white px-5 sm:px-8 pt-16 pb-20 sm:pt-20 sm:pb-24 overflow-hidden">
+      <section className="bg-white px-5 sm:px-8 pt-16 pb-20 sm:pt-20 sm:pb-24">
         <div className="max-w-content mx-auto">
           <div className="grid lg:grid-cols-[1fr_400px] gap-14 lg:gap-20 items-center">
 
