@@ -20,7 +20,6 @@ type NavLink =
 
 const NAV_LINKS: NavLink[] = [
   { label: "How It Works", to: "/how-it-works" },
-  { label: "Heroes & Founders", href: "https://app.getalloro.com/foundation", external: true },
   { label: "Our Story", to: "/story" },
   { label: "Blog", to: "/blog" },
 ];
