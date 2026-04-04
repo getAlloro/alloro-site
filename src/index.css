@@ -2,7 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide reCAPTCHA badge */
+/* ── Font rendering ── */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(214, 104, 83, 0.15);
+  color: #212D40;
+}
+
+/* ── Typography ── */
+.font-heading {
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+/* ── Utilities ── */
+.divider-warm {
+  background: linear-gradient(90deg, #D66853 0%, transparent 100%);
+}
+
+/* ── Hide reCAPTCHA badge ── */
 .grecaptcha-badge {
   visibility: hidden !important;
   opacity: 0 !important;

@@ -2,165 +2,198 @@
  * PricingPage -- /pricing
  *
  * One product. One price. No contracts.
- * Blast radius: Red (pricing). Content matches approved spec only.
  */
 
+import { motion, type Variants } from "framer-motion";
 import { AUDIT_BASE } from "../../api/config";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import MarketingLayout from "../../components/marketing/MarketingLayout";
 
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+};
+const stagger: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
+
+const INCLUDES = [
+  {
+    title: "Your Business Clarity Brief every Monday morning.",
+    desc: "Alloro scans your market every week and delivers one finding, one action, and one score. In plain English. Before you see your first client.",
+  },
+  {
+    title: "Your Alloro website, built in one hour.",
+    desc: "A professional, conversion-optimized web presence built from your real market data and Google reviews. Live within one hour of signup.",
+  },
+  {
+    title: "Revenue source intelligence.",
+    desc: "Connect your business data and Alloro monitors every relationship that drives revenue. When one starts to drift, you know first, with the dollar figure attached.",
+  },
+  {
+    title: "Competitive intelligence.",
+    desc: "Weekly competitive position tracking across local search, reviews, and online visibility. Your score. Their score. What changed.",
+  },
+  {
+    title: "The full Business Clarity layer.",
+    desc: "Connect your data and Alloro puts a dollar figure on every finding. What's working, what's slipping, and what to do about it this week.",
+  },
+];
+
 export default function PricingPage() {
+  const schemaData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@id": "https://getalloro.com/#organization", "@type": "Organization", name: "Alloro", url: "https://getalloro.com" },
+      {
+        "@type": "Product",
+        name: "Alloro Business Clarity",
+        description: "Business Clarity platform for local service professionals.",
+        url: "https://getalloro.com/pricing",
+        brand: { "@id": "https://getalloro.com/#organization" },
+        offers: {
+          "@type": "Offer",
+          price: "2000",
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "2000",
+            priceCurrency: "USD",
+            billingDuration: "P1M",
+            unitText: "per location per month",
+          },
+        },
+      },
+    ],
+  });
+
   return (
     <MarketingLayout
       title="Pricing"
       description="$2,000/month per location. Your Monday Brief, professional website, revenue intelligence, and competitive tracking. No contracts."
     >
       {/* Hero */}
-      <section className="px-5 py-16 sm:py-24">
-        <div className="max-w-2xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl font-semibold text-[#212D40] tracking-tight">
+      <section className="bg-white px-5 sm:px-8 pt-20 pb-16 sm:pt-28 sm:pb-20">
+        <motion.div
+          className="max-w-[640px] mx-auto text-center"
+          initial="hidden"
+          animate="visible"
+          variants={stagger}
+        >
+          <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-[#1E3A8A]/60 mb-5">
+            Pricing
+          </motion.p>
+          <motion.h1 variants={fadeUp} className="font-heading font-bold text-[#212D40] text-[40px] sm:text-[52px] leading-[1.1] tracking-[-0.02em] mb-5">
             Everything Alloro does. One price.
-          </h1>
-          <p className="mt-4 text-base sm:text-lg text-[#212D40]/60">
+          </motion.h1>
+          <motion.p variants={fadeUp} className="text-[#4B5563] text-lg">
             One product. One price. No contracts.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* Pricing Card */}
-      <section className="px-5 pb-16 sm:pb-20">
-        <div className="max-w-lg mx-auto">
-          <div className="rounded-2xl border-2 border-[#212D40]/15 bg-white overflow-hidden shadow-sm">
-            <div className="h-1.5 bg-[#D56753]" />
-            <div className="p-8">
+      {/* Pricing card */}
+      <section className="bg-[#FAFAF8] px-5 sm:px-8 py-16 sm:py-20">
+        <div className="max-w-[560px] mx-auto">
+          <motion.div
+            className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_16px_rgba(0,0,0,0.08)]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+          >
+            <div className="h-1 bg-[#D66853]" />
+            <div className="p-8 sm:p-10">
               {/* Price */}
-              <div className="text-center mb-8">
-                <span className="text-5xl sm:text-6xl font-semibold text-[#212D40]">
-                  $2,000
-                </span>
-                <span className="text-lg text-slate-400 ml-2">/ month</span>
-                <p className="mt-2 text-sm text-slate-500">
-                  Per location. Cancel anytime.
-                </p>
+              <div className="mb-8">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-heading font-bold text-[#212D40] text-5xl sm:text-6xl tracking-tight">
+                    $2,000
+                  </span>
+                  <span className="text-[#9CA3AF] text-lg">/ month</span>
+                </div>
+                <p className="text-sm text-[#9CA3AF] mt-1.5">Per location. Cancel anytime.</p>
               </div>
 
               {/* What's included */}
-              <div className="space-y-6">
-                <IncludeItem
-                  title="Your Business Clarity Brief every Monday morning."
-                  desc="Alloro scans your market every week and delivers one finding, one action, and one score. In plain English. Before you see your first client."
-                />
-                <IncludeItem
-                  title="Your Alloro website, built in one hour."
-                  desc="A professional, conversion-optimized web presence built from your real market data and Google reviews. Live within one hour of signup."
-                />
-                <IncludeItem
-                  title="Revenue source intelligence."
-                  desc="Connect your business data and Alloro monitors every relationship that drives revenue. When one starts to drift, you know first, with the dollar figure attached."
-                />
-                <IncludeItem
-                  title="Competitive intelligence."
-                  desc="Weekly competitive position tracking across local search, reviews, and online visibility. Your score. Their score. What changed."
-                />
-                <IncludeItem
-                  title="The full Business Clarity layer."
-                  desc="Connect your data and Alloro puts a dollar figure on every finding. What's working, what's slipping, and what to do about it this week."
-                />
-              </div>
+              <motion.div
+                className="space-y-6 border-t border-[#F3F4F6] pt-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={stagger}
+              >
+                {INCLUDES.map(({ title, desc }) => (
+                  <motion.div key={title} variants={fadeUp} className="flex gap-4">
+                    <div className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#D66853]/10 flex items-center justify-center">
+                      <Check className="w-3 h-3 text-[#D66853]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#212D40] mb-1">{title}</p>
+                      <p className="text-sm text-[#9CA3AF] leading-[1.7]">{desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Split the check */}
-          <div className="mt-8 rounded-xl border-2 border-[#212D40]/10 bg-[#212D40]/[0.02] p-6 text-center">
-            <p className="text-sm font-bold text-[#212D40] mb-1">
-              Rise Together. Split month one.
+          {/* Rise Together callout */}
+          <motion.div
+            className="mt-5 rounded-xl border border-[#1E3A8A]/10 bg-[#1E3A8A]/[0.03] p-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <p className="text-sm font-bold text-[#212D40] mb-1.5">
+              Rise Together — split month one.
             </p>
-            <p className="text-xs text-[#212D40]/50 leading-relaxed">
+            <p className="text-sm text-[#4B5563] leading-[1.7]">
               Know a colleague who should see their market? When they join,
               you both pay $1,000 for month one instead of $2,000.
               Not a discount. A shared investment. We all rise together.
             </p>
-          </div>
+            <Link to="/rise" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E3A8A] mt-3 hover:underline underline-offset-2">
+              Learn more <ArrowRight className="w-3 h-3" />
+            </Link>
+          </motion.div>
 
           {/* Foundation line */}
-          <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 text-center">
-            <p className="text-sm text-[#212D40]/70 leading-relaxed">
-              10% of every subscription funds{" "}
-              <Link to="/foundation" className="text-[#D56753] font-semibold hover:underline">
-                Heroes & Founders Foundation
-              </Link>
-              . Veterans and first-year business owners get access
-              at no cost or reduced cost. The people who served first
-              deserve the intelligence everyone else pays for.
+          <motion.div
+            className="mt-4 rounded-xl border border-[#E5E7EB] bg-white p-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <p className="text-sm text-[#4B5563] leading-[1.7]">
+              10% of every subscription funds the{" "}
+              <span className="text-[#D66853] font-semibold">Heroes & Founders Foundation</span>.
+              Veterans and first-year business owners get access at no cost or reduced cost.
             </p>
-          </div>
+          </motion.div>
 
           {/* CTA */}
-          <div className="mt-10 text-center">
+          <motion.div
+            className="mt-10 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
             <a
               href={AUDIT_BASE}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#D56753] text-white text-base font-semibold px-8 py-4 shadow-[0_4px_20px_rgba(213,103,83,0.4)] hover:brightness-110 active:scale-[0.98] transition-all"
+              className="inline-flex items-center gap-2 rounded-[8px] bg-[#D66853] text-white text-base font-semibold px-8 py-4 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_2px_12px_rgba(214,104,83,0.30)]"
             >
-              See my numbers first
-              <ArrowRight className="w-4 h-4" />
+              See my numbers first <ArrowRight className="w-4 h-4" />
             </a>
-            <p className="mt-3 text-xs text-gray-400">
+            <p className="mt-3 text-sm text-[#9CA3AF]">
               See where you rank. Free. 60 seconds. Then decide.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              { "@id": "https://getalloro.com/#organization", "@type": "Organization", "name": "Alloro", "url": "https://getalloro.com" },
-              {
-                "@type": "Product",
-                "name": "Alloro Business Clarity",
-                "description": "Business Clarity platform for local service professionals.",
-                "url": "https://getalloro.com/pricing",
-                "brand": { "@id": "https://getalloro.com/#organization" },
-                "offers": {
-                  "@type": "Offer",
-                  "price": "2000",
-                  "priceCurrency": "USD",
-                  "priceSpecification": {
-                    "@type": "UnitPriceSpecification",
-                    "price": "2000",
-                    "priceCurrency": "USD",
-                    "billingDuration": "P1M",
-                    "unitText": "per location per month",
-                  },
-                },
-              },
-              {
-                "@type": "FAQPage",
-                "mainEntity": [
-                  { "@type": "Question", "name": "How much does Alloro cost?", "acceptedAnswer": { "@type": "Answer", "text": "Alloro costs $2,000 per location per month. No contracts, cancel anytime." } },
-                  { "@type": "Question", "name": "Is there a free trial?", "acceptedAnswer": { "@type": "Answer", "text": "The free market scan takes in 60 seconds with no credit card. Subscription starts when you want weekly Monday briefings." } },
-                  { "@type": "Question", "name": "What is included in the subscription?", "acceptedAnswer": { "@type": "Answer", "text": "Your weekly Monday Brief with one finding and one action, a professional website built by AI, revenue source intelligence with drift alerts, competitive position tracking, and the Business Clarity layer that gets more specific as you connect more data." } },
-                  { "@type": "Question", "name": "Can I cancel anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. No contracts, no cancellation fees. Your data stays yours." } },
-                ],
-              },
-            ],
-          }),
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaData }} />
     </MarketingLayout>
-  );
-}
-
-function IncludeItem({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div>
-      <p className="text-sm font-bold text-[#212D40] mb-1">{title}</p>
-      <p className="text-sm text-[#212D40]/60 leading-relaxed">{desc}</p>
-    </div>
   );
 }
