@@ -12,6 +12,7 @@ import MarketingLayout from "../../components/marketing/MarketingLayout";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 const stagger: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
@@ -32,17 +33,51 @@ export default function ProductPage() {
       {/* Hero */}
       <section className="bg-white px-5 sm:px-8 pt-20 pb-16 sm:pt-28 sm:pb-20">
         <motion.div
-          className="max-w-[640px] mx-auto text-center"
+          className="max-w-content mx-auto grid lg:grid-cols-[1fr_360px] gap-12 lg:gap-20 items-center"
           initial="hidden"
           animate="visible"
           variants={stagger}
         >
-          <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-[#1E3A8A]/60 mb-5">
-            The Product
-          </motion.p>
-          <motion.h1 variants={fadeUp} className="font-heading font-bold text-[#212D40] text-[40px] sm:text-[52px] leading-[1.1] tracking-[-0.02em]">
-            What Business Clarity actually looks like.
-          </motion.h1>
+          {/* Left */}
+          <div>
+            <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8 bg-[#D66853]" />
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E3A8A]/60">The Product</p>
+            </motion.div>
+            <motion.h1 variants={fadeUp} className="font-heading font-bold text-[#212D40] text-[40px] sm:text-[52px] leading-[1.1] tracking-[-0.02em] mb-6">
+              What Business Clarity actually looks like.
+            </motion.h1>
+            <motion.p variants={fadeUp} className="text-[#4B5563] text-lg leading-[1.8] max-w-lg mb-8">
+              Enter your business name. 60 seconds later, see your competitive position. Monday morning, get the one action that matters.
+            </motion.p>
+            <motion.div variants={fadeUp}>
+              <a
+                href={AUDIT_BASE}
+                className="inline-flex items-center gap-2 rounded-[8px] bg-[#D66853] text-white text-sm font-semibold px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_2px_8px_rgba(214,104,83,0.25)]"
+              >
+                Run your free Checkup <ArrowRight className="w-4 h-4" />
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right — what's included at a glance */}
+          <motion.div variants={fadeUp} className="hidden lg:flex flex-col gap-2.5">
+            {[
+              { label: "Free Checkup", sub: "60 seconds · No account needed" },
+              { label: "Monday Brief", sub: "One finding · Every week · 7am" },
+              { label: "Alloro Website", sub: "Built in 1 hour from your data" },
+              { label: "Revenue Intel", sub: "Know before relationships drift" },
+              { label: "Competitive Tracking", sub: "Your market, every week" },
+            ].map(({ label, sub }) => (
+              <div key={label} className="flex items-start gap-3 bg-[#FAFAF8] border border-[#E5E7EB] rounded-xl px-4 py-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#D66853] shrink-0 mt-1.5" />
+                <div>
+                  <p className="text-sm font-semibold text-[#212D40]">{label}</p>
+                  <p className="text-xs text-[#9CA3AF] mt-0.5">{sub}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </section>
 

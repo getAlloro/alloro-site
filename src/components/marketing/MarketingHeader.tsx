@@ -57,18 +57,12 @@ export default function MarketingHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#E5E7EB]/80">
-        <div className="max-w-content mx-auto flex items-center justify-between px-5 sm:px-8 h-[64px]">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#E5E7EB]/80 px-5 sm:px-8">
+        <div className="max-w-content mx-auto flex items-center justify-between h-[64px]">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-7 h-7 rounded-md bg-[#D66853] flex items-center justify-center shadow-[0_2px_8px_rgba(214,104,83,0.3)]">
-              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2L14 14H2L8 2Z" fill="white" opacity="0.95" />
-              </svg>
-            </div>
-            <span className="text-[17px] font-bold tracking-tight text-[#212D40] font-heading">
-              alloro
-            </span>
+            <img src="/logo.png" alt="Alloro" className="h-8 w-auto" />
+            <span className="font-heading font-bold text-[18px] tracking-tight text-[#212D40]">Alloro</span>
           </Link>
 
           {/* Desktop nav */}

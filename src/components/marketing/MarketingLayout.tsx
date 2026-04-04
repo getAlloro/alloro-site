@@ -71,14 +71,14 @@ export default function MarketingLayout({
     setMeta("og:description", description);
     setMeta("og:url", pageUrl);
     setMeta("og:type", ogType);
-    setMeta("og:image", `${BASE_URL}/og-alloro.png`);
+    setMeta("og:image", `${BASE_URL}/logo.png`);
     setMeta("og:site_name", "Alloro");
 
     // Twitter card tags
     setMetaName("twitter:card", "summary_large_image");
     setMetaName("twitter:title", title);
     setMetaName("twitter:description", description);
-    setMetaName("twitter:image", `${BASE_URL}/og-alloro.png`);
+    setMetaName("twitter:image", `${BASE_URL}/logo.png`);
 
     // Canonical link
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;

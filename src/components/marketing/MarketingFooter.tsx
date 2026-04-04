@@ -174,14 +174,7 @@ export default function MarketingFooter() {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-[#E5E7EB] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-5 h-5 rounded-[5px] bg-[#D66853] flex items-center justify-center">
-              <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2L14 14H2L8 2Z" fill="white" opacity="0.95" />
-              </svg>
-            </div>
-            <span className="text-sm font-bold text-[#212D40] font-heading">alloro</span>
-          </div>
+          <img src="/logo.png" alt="Alloro" className="h-6 w-auto" />
           <p className="text-sm text-[#9CA3AF]">
             © 2026 Alloro, Inc. Business Clarity for local service professionals.
           </p>
