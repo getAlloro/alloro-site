@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms Cancellation Notice Update Spec</title>
+  <link rel="stylesheet" href="./spec.css">
+</head>
+<body>
+  <main class="spec-shell">
+    <header class="spec-hero">
+      <div class="hero-topline">
+        <p class="eyebrow">Alloro Plan Spec</p>
+        <span class="status-pill status-completed">Completed</span>
+      </div>
+      <h1>Terms Cancellation Notice Update</h1>
+      <dl class="meta-grid">
+        <div class="status-card"><dt>Status</dt><dd>Completed</dd></div>
+        <div><dt>Plan Folder</dt><dd>plans/06082026-terms-cancellation-notice-update</dd></div>
+        <div><dt>Size</dt><dd>Small</dd></div>
+        <div><dt>Risk</dt><dd>Level 2</dd></div>
+      </dl>
+    </header>
+
+    <section class="spec-card" id="why">
+      <h2>Why</h2>
+      <p>The public Terms of Service currently says clients can cancel at any time, but it does not reflect Alloro's offboarding SOP notice rules. The Terms need to preserve the no-contract promise while making final billing period and cancellation timing expectations explicit.</p>
+    </section>
+
+    <section class="spec-card" id="what">
+      <h2>What</h2>
+      <p>Update the Terms of Service cancellation and termination language to match the May 2026 offboarding SOP: cancellation may be requested at any time, standard cancellation is not immediate, 15 days' notice before the next billing date avoids an additional billing cycle, fewer than 15 days' notice results in one additional full cycle, and service continues through the final paid period unless a written legal exception is approved.</p>
+    </section>
+
+    <section class="spec-card" id="context">
+      <h2>Context</h2>
+      <h3>Relevant Files</h3>
+      <ul>
+        <li><code>src/pages/TermsOfService.tsx</code> - React route rendering the public Terms of Service.</li>
+        <li><code>/Users/rustinedave/Downloads/Alloro_Offboarding_SOP.pdf</code> - Source offboarding process language for cancellation, billing notice, and wind-down timing.</li>
+      </ul>
+      <h3>Patterns To Follow</h3>
+      <ul>
+        <li>Keep the existing Terms page structure, section numbering, Tailwind classes, and Alloro Note callout pattern.</li>
+        <li>Use direct, plain-English copy; do not introduce a separate legal page pattern.</li>
+      </ul>
+      <p><strong>Reference file:</strong> <code>src/pages/TermsOfService.tsx</code> - closest existing analog because this is a copy amendment inside the existing page.</p>
+    </section>
+
+    <section class="spec-card" id="constraints">
+      <h2>Constraints</h2>
+      <div class="split-grid">
+        <div>
+          <h3>Must</h3>
+          <ul>
+            <li>Keep "cancel any time" and "no long-term contracts" positioning.</li>
+            <li>Clarify industry-standard billing notice and final paid-period rules.</li>
+            <li>Keep data export and ownership commitments consistent with existing Terms.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Must Not</h3>
+          <ul>
+            <li>Do not change operational billing code or Stripe behavior.</li>
+            <li>Do not update unrelated marketing copy without a proven conflict.</li>
+            <li>Do not create new dependencies or new page components.</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Out Of Scope</h3>
+      <ul>
+        <li>Offboarding automation, Stripe webhook changes, account state tables, data export implementation, and website ownership policy changes outside the Terms page.</li>
+      </ul>
+    </section>
+
+    <section class="spec-card" id="risk">
+      <h2>Risk</h2>
+      <p><strong>Level:</strong> 2 - Concern</p>
+      <h3>Risks Identified</h3>
+      <ul>
+        <li>Contract-facing copy can create billing expectations that differ from operations. <strong>Mitigation:</strong> mirror only the SOP's cancellation timing rules and flag the final wording for human legal/business review.</li>
+        <li>The SOP contains internal-only roles and exception handling. <strong>Mitigation:</strong> do not mention Jo, Corey, internal approvals by name, N8N, or automation details in public Terms copy.</li>
+      </ul>
+      <p><strong>Blast radius:</strong> Public <code>/terms</code> route only. Consumers are <code>src/App.tsx</code>, <code>src/components/marketing/MarketingFooter.tsx</code>, <code>src/components/Footer.tsx</code>, <code>src/pages/PrivacyPolicy.tsx</code>, and <code>src/pages/AlloroProtect.tsx</code> as links into the route.</p>
+      <h3>Pushback</h3>
+      <ul>
+        <li>Do not pretend "cancel any time" means "service and billing stop instantly." Future-us will hate reconciling that against Stripe and the SOP. Recommended path: "request cancellation any time" plus explicit notice/final-period terms.</li>
+      </ul>
+    </section>
+
+    <section class="spec-card" id="tasks">
+      <h2>Tasks</h2>
+      <article class="task-card">
+        <h3>T1: Terms Cancellation Copy</h3>
+        <dl>
+          <div><dt>Do</dt><dd>Amend Payment Terms and Termination copy so cancellation timing, final billing period, data export, and service wind-down match the offboarding SOP.</dd></div>
+          <div><dt>Files</dt><dd><code>src/pages/TermsOfService.tsx</code></dd></div>
+          <div><dt>Depends on</dt><dd>None</dd></div>
+          <div><dt>Verify</dt><dd><code>npx tsc --noEmit</code>, <code>npm run build</code>, <code>npm run lint</code></dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="spec-card" id="done">
+      <h2>Done</h2>
+      <ul class="checklist">
+        <li><input type="checkbox" checked disabled> <code>npx tsc --noEmit</code> passes</li>
+        <li><input type="checkbox" checked disabled> <code>npm run build</code> passes</li>
+        <li><input type="checkbox" checked disabled> <code>npm run lint</code> is blocked by missing repo ESLint config, unrelated to this change</li>
+        <li><input type="checkbox" checked disabled> Manual: Terms copy still preserves no-contract, easy-cancel positioning while documenting the 15-day notice and final paid-period rules</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

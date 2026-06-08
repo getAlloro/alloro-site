@@ -20,7 +20,7 @@ export default function TermsOfService() {
               Terms of Service
             </h1>
             <p className="text-[16px] font-medium text-[#777777] md:text-[18px]">
-              Last updated: December 18, 2024
+              Last updated: June 8, 2026
             </p>
           </motion.div>
         </div>
@@ -190,15 +190,38 @@ export default function TermsOfService() {
                   We may change pricing with 30 days' notice to existing
                   subscribers
                 </li>
-                <li>You can cancel your subscription at any time</li>
+                <li>
+                  You can request cancellation of your subscription at any time
+                </li>
+                <li>
+                  Cancellation is not immediate unless Alloro confirms an
+                  exception in writing
+                </li>
+                <li>
+                  If we receive your cancellation request at least 15 days
+                  before your next billing date, your current billing cycle will
+                  be your final paid period
+                </li>
+                <li>
+                  If we receive your cancellation request fewer than 15 days
+                  before your next billing date, you will be charged for the
+                  next full billing cycle, which will become your final paid
+                  period
+                </li>
+                <li>
+                  Your Service access and any standard offboarding support will
+                  continue through the final paid period unless we agree
+                  otherwise in writing or terminate access for cause
+                </li>
               </ul>
               <div className="rounded-xl bg-[#F0FDFA] border border-[#06B6D4]/20 p-4 md:p-5">
                 <p className="text-[14px] font-medium text-[#0891B2] md:text-[15px]">
                   <strong>Alloro Note:</strong> We believe we have to earn your
                   business every month. That's why we offer flexible
-                  month-to-month plans with no long-term contracts. If we're not
-                  adding value to your practice, you should be able to leave
-                  easily.
+                  month-to-month plans with no long-term contracts. You can
+                  request cancellation whenever you need to; the notice window
+                  simply keeps final billing, data export, and site wind-down
+                  predictable for both sides.
                 </p>
               </div>
             </div>
@@ -321,15 +344,33 @@ export default function TermsOfService() {
                 12. Termination
               </h2>
               <p className="text-[15px] leading-relaxed text-[#666666] md:text-[16px]">
-                Either party may terminate this agreement at any time. Upon
-                termination:
+                Either party may terminate this agreement. Customer
+                cancellation follows the notice and final paid-period rules in
+                Section 6. We may suspend or terminate access sooner for
+                nonpayment, misuse, legal or security risk, or material breach
+                of these Terms. Upon termination:
               </p>
               <ul className="ml-6 list-disc space-y-2 text-[15px] text-[#666666] md:text-[16px]">
-                <li>Your right to access the Service will immediately cease</li>
-                <li>You may request an export of your data within 30 days</li>
+                <li>
+                  Your right to access the Service will end at the close of the
+                  final paid period, unless access is terminated sooner for
+                  cause or by written agreement
+                </li>
+                <li>
+                  You may request an export of your data during offboarding and
+                  for up to 30 days after account closure
+                </li>
+                <li>
+                  Any Alloro-hosted website, dashboard, or related
+                  infrastructure tied to your account will wind down according
+                  to the cancellation confirmation and final paid-period
+                  timeline
+                </li>
                 <li>
                   We will securely delete your data within 90 days of
-                  termination
+                  account closure, unless retention is required by law or
+                  necessary for legitimate business, compliance, security, or
+                  dispute-resolution purposes
                 </li>
                 <li>
                   Sections relating to liability, indemnification, and dispute
